@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ===== SEO / META ===== -->
+  <title>مقابلتك | استعد لمقابلة العمل بثقة</title>
+  <meta name="description" content="حقيبة عملية تساعدك على تجهيز إجاباتك والتدرب على مقابلات العمل بالعربي والإنجليزي. استعد، تدرب، وادخل مقابلتك جاهز.">
+  <meta name="theme-color" content="#0B1B3F">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:title" content="مقابلتك | استعد لمقابلة العمل بثقة">
+  <meta property="og:description" content="حقيبة عملية تساعدك على تجهيز إجاباتك والتدرب على مقابلات العمل بالعربي والإنجليزي. استعد، تدرب، وادخل مقابلتك جاهز.">
+  <meta property="og:image" content="images/hero-1400.webp">
+
+  <!-- ===== Fonts (IBM Plex Sans Arabic) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Preload hero image (LCP) -->
+  <link rel="preload" as="image" href="images/hero-800.webp"
+        imagesrcset="images/hero-800.webp 800w, images/hero-1400.webp 1400w"
+        imagesizes="(min-width: 960px) 560px, 100vw">
+
+  <link rel="stylesheet" href="styles.css">
+  <!-- Enables reveal animations only when JS runs -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- =========================================================
+     SVG ICON SPRITE — reuse with <svg><use href="#i-..."/></svg>
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 6V4.8A1.8 1.8 0 0 1 10.8 3h2.4A1.8 1.8 0 0 1 15 4.8V6M4.5 6h15A1.5 1.5 0 0 1 21 7.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5v-11A1.5 1.5 0 0 1 4.5 6ZM3 11.5c5.6 3 12.4 3 18 0M12 12.5v1.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M7 7l10 10M17 7 7 17"/></symbol>
+  <!-- Arrow points LEFT = "forward" in RTL -->
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m6-6-6 6 6 6"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 11h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9ZM3 7h18v4H3zM12 7v14M12 7S10.5 3 8 3.8C6 4.5 7 7 9 7m3 0s1.5-4 4-3.2C18 4.5 17 7 15 7"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 12a7 7 0 0 1-10.3 6.2L4 20l1.6-4.8A7 7 0 1 1 20 12Z"/></symbol>
+  <symbol id="i-grad" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 9l10-5 10 5-10 5L2 9Zm4 2.2V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.8M22 9v5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm-9-9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0-10v6m0-9.5v.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+</svg>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="مقابلتك — الرئيسية">
+      <span class="brand-icon"><svg><use href="#i-bag"/></svg></span>
+      <span class="brand-name">مقابلتك</span>
+    </a>
+    <a href="checkout.html" data-cta class="btn btn-primary btn-sm js-cta">احصل عليها — 49 ريال</a>
+  </div>
+</header>
+
+<main>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>عندك مقابلة عمل قريب؟</p>
+
+      <h1 id="hero-title" class="hero-title">
+        لا تدخل المقابلة وتتمنى تكون جاهز…
+        <span class="hl">ادخلها وأنت متدرّب.</span>
+      </h1>
+
+      <p class="hero-sub">
+        مع <strong>«مقابلتك»</strong> جهّز إجاباتك، تعرّف على أهم الأسئلة المتوقعة، وتدرّب على مقابلة تحاكي الوظيفة اللي مقدّم عليها — بالعربي أو الإنجليزي.
+      </p>
+
+      <ul class="checklist hero-benefits">
+        <li><svg><use href="#i-check"/></svg>جهّز إجاباتك خطوة بخطوة</li>
+        <li><svg><use href="#i-check"/></svg>تدرب بناءً على الوظيفة اللي تستهدفها</li>
+        <li><svg><use href="#i-check"/></svg>مناسب لحديثي التخرج وأصحاب الخبرة</li>
+        <li><svg><use href="#i-check"/></svg>5 أدوات عملية + 3 إضافات</li>
+      </ul>
+
+      <div class="buy-row">
+        <div class="price-tag"><span class="price-num">49</span><span class="price-cur">ريال</span></div>
+        <a href="checkout.html" data-cta class="btn btn-primary btn-lg js-cta">
+          احصل على «مقابلتك» الآن
+          <svg class="btn-arrow"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <!-- LCP image: NOT lazy -->
+      <img src="images/hero-800.webp"
+           srcset="images/hero-800.webp 800w, images/hero-1400.webp 1400w"
+           sizes="(min-width: 960px) 560px, 100vw"
+           width="1400" height="788" fetchpriority="high"
+           alt="حقيبة «مقابلتك»: 5 أدوات أساسية و3 إضافات للاستعداد لمقابلة العمل">
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAIN
+     ========================================================= -->
+<section class="section pain" aria-labelledby="pain-title">
+  <div class="container narrow">
+    <h2 id="pain-title" class="section-title reveal">
+      يمكن تكون مناسب جدًا للوظيفة…
+      <span class="muted-line">لكن هل تعرف كيف توصل هذا في المقابلة؟</span>
+    </h2>
+
+    <div class="chat-list">
+      <div class="chat reveal">
+        <p class="bubble q">"عرفنا بنفسك."</p>
+        <p class="bubble a">تعرف خبرتك… لكن تتلخبط كيف تبدأ.</p>
+      </div>
+      <div class="chat reveal">
+        <p class="bubble q">"وش نقطة ضعفك؟"</p>
+        <p class="bubble a">تخاف تقول شيء يضر فرصتك.</p>
+      </div>
+      <div class="chat reveal">
+        <p class="bubble q">"حدثني عن موقف صعب واجهته."</p>
+        <p class="bubble a">عندك مواقف كثيرة، لكن ما تعرف كيف ترتب الإجابة.</p>
+      </div>
+      <div class="chat reveal">
+        <p class="bubble q">"كم راتبك المتوقع؟"</p>
+        <p class="bubble a">تبدأ تحسب كل كلمة قبل ما تقولها.</p>
+      </div>
+      <div class="chat reveal">
+        <p class="bubble q en-q">وإذا تحولت المقابلة للإنجليزي؟</p>
+        <p class="bubble a">يزيد التوتر أكثر.</p>
+      </div>
+    </div>
+
+    <div class="insight reveal">
+      <p class="insight-main">المشكلة مو دائمًا إنك ما عندك الإجابة.</p>
+      <p>أحيانًا المشكلة إنك <strong>ما جهزتها ولا تدربت عليها</strong> قبل المقابلة.</p>
+    </div>
+
+    <p class="transition reveal">وهنا يجي دور <span class="brand-inline">«مقابلتك»</span>.</p>
+  </div>
+</section>
+
+<!-- =========================================================
+     TRANSFORMATION (Before / After)
+     ========================================================= -->
+<section class="section alt" aria-labelledby="trans-title">
+  <div class="container">
+    <h2 id="trans-title" class="section-title center reveal">
+      من "وش ممكن يسألونني؟"
+      <span class="hl">إلى "أنا جاهز."</span>
+    </h2>
+
+    <div class="ba-grid">
+      <div class="ba-card before reveal">
+        <p class="ba-label">قبل</p>
+        <ul class="xlist">
+          <li><svg><use href="#i-x"/></svg>ما تعرف وش الأسئلة اللي ممكن تواجهك</li>
+          <li><svg><use href="#i-x"/></svg>تحفظ إجابات عامة من الإنترنت</li>
+          <li><svg><use href="#i-x"/></svg>تتلخبط في "عرفنا بنفسك"</li>
+          <li><svg><use href="#i-x"/></svg>ما عندك قصص STAR مجهزة</li>
+          <li><svg><use href="#i-x"/></svg>متوتر من المقابلة الإنجليزية</li>
+          <li><svg><use href="#i-x"/></svg>ما تعرف كيف تتعامل مع سؤال الراتب</li>
+          <li><svg><use href="#i-x"/></svg>أول تدريب حقيقي يكون داخل المقابلة نفسها</li>
+        </ul>
+      </div>
+
+      <div class="ba-card after reveal">
+        <p class="ba-label">بعد «مقابلتك»</p>
+        <ul class="checklist">
+          <li><svg><use href="#i-check"/></svg>تعرف أهم الأسئلة وكيف تتعامل معها</li>
+          <li><svg><use href="#i-check"/></svg>تبني إجابات مبنية على خبرتك</li>
+          <li><svg><use href="#i-check"/></svg>تجهز تقديمك الشخصي مسبقًا</li>
+          <li><svg><use href="#i-check"/></svg>تحول تجاربك إلى إجابات بطريقة STAR</li>
+          <li><svg><use href="#i-check"/></svg>تتدرب قبل الموعد</li>
+          <li><svg><use href="#i-check"/></svg>تستعد للأسئلة الإنجليزية</li>
+          <li><svg><use href="#i-check"/></svg>تدخل وعندك خطة واضحة</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="goal-box reveal">
+      <p>الهدف مو إنك تحفظ إجابات جاهزة.</p>
+      <p class="goal-strong">الهدف إنك تدخل وأنت عارف <span>وش تقول</span>، و<span>كيف تقوله</span>، و<span>ليش</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     HOW IT WORKS — 4-step journey
+     ========================================================= -->
+<section class="section" aria-labelledby="how-title">
+  <div class="container">
+    <h2 id="how-title" class="section-title center reveal">كيف تجهزك «مقابلتك»؟</h2>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-num">01</span>
+        <h3>افهم</h3>
+        <p>اعرف أهم الأسئلة اللي ممكن تواجهك، وليش المحاور يسألها، ووش يبحث عنه في إجابتك.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-num">02</span>
+        <h3>جهّز</h3>
+        <p>استخدم قوالب بناء الإجابات وحوّل خبراتك ومواقفك إلى إجابات مرتبة.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step-num">03</span>
+        <h3>تدرّب</h3>
+        <p>استخدم نظام التدريب مع ChatGPT لمحاكاة المقابلة ومراجعة إجاباتك.</p>
+      </li>
+      <li class="step step-final reveal">
+        <span class="step-num"><svg><use href="#i-check"/></svg></span>
+        <h3>ادخل جاهز</h3>
+        <p>راجع Checklist يوم المقابلة وتأكد إن كل شيء جاهز قبل الموعد.</p>
+      </li>
+    </ol>
+
+    <!-- Visual flow + progress bar -->
+    <div class="flow reveal" aria-label="افهم، جهّز، تدرّب، ادخل جاهز">
+      <div class="flow-labels">
+        <span>افهم</span><span>جهّز</span><span>تدرّب</span><span class="ok">ادخل جاهز ✓</span>
+      </div>
+      <div class="progress"><span class="progress-bar"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     AI COACH FEATURE
+     ========================================================= -->
+<section class="section alt" aria-labelledby="coach-title">
+  <div class="container split">
+    <div class="split-media portrait reveal">
+      <img src="images/ai-coach-800.webp"
+           srcset="images/ai-coach-800.webp 800w, images/ai-coach-1400.webp 1145w"
+           sizes="(min-width: 960px) 460px, 100vw"
+           width="1145" height="1374" loading="lazy" decoding="async"
+           alt="مدرب مقابلتك AI — تدريب على مقابلة Mock Interview">
+    </div>
+
+    <div class="split-copy">
+      <h2 id="coach-title" class="section-title reveal">
+        مو أي مقابلة…
+        <span class="hl">تدرّب على مقابلتك أنت.</span>
+      </h2>
+      <p class="kicker reveal">واحدة من أهم الأدوات داخل الحقيبة: <strong>مدرب مقابلتك AI</strong></p>
+      <p class="lead reveal">
+        بدل ما تستخدم ChatGPT بطريقة عشوائية وتسأله أسئلة عامة، تحصل داخل «مقابلتك» على Workflow وPrompts جاهزة تساعدك تحول ChatGPT إلى شريك تدريب للمقابلة.
+      </p>
+
+      <ul class="mini-cards reveal">
+        <li><svg><use href="#i-check"/></svg>تجهيز جلسة Mock Interview</li>
+        <li><svg><use href="#i-check"/></svg>التدريب سؤالًا بسؤال</li>
+        <li><svg><use href="#i-check"/></svg>مراجعة إجاباتك</li>
+        <li><svg><use href="#i-check"/></svg>استخدام STAR</li>
+        <li><svg><use href="#i-check"/></svg>اكتشاف النقاط اللي تحتاج تحسين</li>
+        <li><svg><use href="#i-check"/></svg>إعادة التدريب</li>
+      </ul>
+
+      <p class="disclaimer reveal">
+        <svg><use href="#i-info"/></svg>
+        <span><strong>مدرب مقابلتك AI</strong> هو نظام Prompts وخطوات تدريب جاهزة للاستخدام مع ChatGPT، وليس منصة ذكاء اصطناعي مستقلة.</span>
+      </p>
+
+      <a href="checkout.html" data-cta class="btn btn-primary js-cta reveal">
+        احصل على «مقابلتك» — 49 ريال
+        <svg class="btn-arrow"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     WHAT YOU GET — 5 tools
+     ========================================================= -->
+<section class="section" aria-labelledby="tools-title">
+  <div class="container">
+    <h2 id="tools-title" class="section-title center reveal">وش تحصل عليه داخل «مقابلتك»؟</h2>
+    <p class="section-sub center reveal">5 أدوات أساسية + 3 إضافات</p>
+
+    <!-- TOOL 01 -->
+    <article class="tool">
+      <div class="tool-media portrait reveal">
+        <img src="images/answer-guide-800.webp"
+             srcset="images/answer-guide-800.webp 800w, images/answer-guide-1400.webp 1024w"
+             sizes="(min-width: 960px) 440px, 100vw"
+             width="1024" height="1536" loading="lazy" decoding="async"
+             alt="دليل إجابتك — أهم أسئلة مقابلات العمل">
+      </div>
+      <div class="tool-copy reveal">
+        <p class="tool-tag"><span>01</span>دليل إجابتك</p>
+        <h3 class="tool-title">أهم أسئلة مقابلات العمل وكيف تبني إجابة قوية</h3>
+        <p class="tool-desc">مرجع عملي يساعدك تفهم أنواع الأسئلة المهمة وكيف تبني إجابة مناسبة بدل حفظ إجابات جاهزة.</p>
+        <ul class="checklist two-col">
+          <li><svg><use href="#i-check"/></svg>ليش يُطرح السؤال؟</li>
+          <li><svg><use href="#i-check"/></svg>وش يبحث عنه المحاور؟</li>
+          <li><svg><use href="#i-check"/></svg>كيف ترتب إجابتك؟</li>
+          <li><svg><use href="#i-check"/></svg>أمثلة عملية</li>
+          <li><svg><use href="#i-check"/></svg>أخطاء تتجنبها</li>
+          <li><svg><use href="#i-check"/></svg>نماذج بالعربي والإنجليزي للأسئلة المهمة</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- TOOL 02 -->
+    <article class="tool reverse">
+      <div class="tool-media portrait reveal">
+        <img src="images/answer-builder-800.webp"
+             srcset="images/answer-builder-800.webp 800w, images/answer-builder-1400.webp 1024w"
+             sizes="(min-width: 960px) 440px, 100vw"
+             width="1024" height="1536" loading="lazy" decoding="async"
+             alt="صانع الإجابات — قوالب وأطر عملية مثل STAR لبناء إجاباتك">
+      </div>
+      <div class="tool-copy reveal">
+        <p class="tool-tag"><span>02</span>صانع الإجابات</p>
+        <h3 class="tool-title">لا تحفظ إجابة شخص ثاني.<br><span class="hl">ابنِ إجابتك أنت.</span></h3>
+        <ul class="chips">
+          <li dir="ltr">Tell Me About Yourself Builder</li>
+          <li dir="ltr">STAR Story Builder</li>
+          <li>نقاط القوة</li>
+          <li>نقاط الضعف</li>
+          <li>الإنجازات</li>
+          <li>لماذا نختارك؟</li>
+          <li>لماذا تريد هذه الوظيفة؟</li>
+          <li>سبب ترك الوظيفة السابقة</li>
+          <li>الراتب المتوقع</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- TOOL 03 -->
+    <article class="tool">
+      <div class="tool-media portrait reveal">
+        <img src="images/ai-coach-800.webp"
+             srcset="images/ai-coach-800.webp 800w, images/ai-coach-1400.webp 1145w"
+             sizes="(min-width: 960px) 460px, 100vw"
+             width="1145" height="1374" loading="lazy" decoding="async"
+             alt="مدرب مقابلتك AI — Prompts للتدريب مع ChatGPT">
+      </div>
+      <div class="tool-copy reveal">
+        <p class="tool-tag"><span>03</span>مدرب مقابلتك AI</p>
+        <h3 class="tool-title">خلّ التدريب أقرب للمقابلة اللي تستعد لها.</h3>
+        <ul class="checklist two-col">
+          <li><svg><use href="#i-check"/></svg>Prompts منظمة</li>
+          <li><svg><use href="#i-check"/></svg>Mock Interview</li>
+          <li><svg><use href="#i-check"/></svg>التدريب سؤالًا بسؤال</li>
+          <li><svg><use href="#i-check"/></svg>Feedback على الإجابات</li>
+          <li><svg><use href="#i-check"/></svg>تحسين الإجابة</li>
+          <li><svg><use href="#i-check"/></svg>إعادة التدريب</li>
+        </ul>
+        <p class="note">للاستخدام مع ChatGPT — ليس منصة مستقلة.</p>
+      </div>
+    </article>
+
+    <!-- TOOL 04 -->
+    <article class="tool reverse">
+      <div class="tool-media portrait reveal">
+        <img src="images/english-kit-800.webp"
+             srcset="images/english-kit-800.webp 800w, images/english-kit-1400.webp 1024w"
+             sizes="(min-width: 960px) 440px, 100vw"
+             width="1024" height="1536" loading="lazy" decoding="async"
+             alt="English Interview Survival Kit">
+      </div>
+      <div class="tool-copy reveal">
+        <p class="tool-tag"><span>04</span><span dir="ltr">English Interview Survival Kit</span></p>
+        <h3 class="tool-title">مقابلة بالإنجليزي؟<br><span class="hl">لا تخلي اللغة تفاجئك.</span></h3>
+        <ul class="checklist two-col">
+          <li><svg><use href="#i-check"/></svg>كيف تقدم نفسك بالإنجليزي</li>
+          <li><svg><use href="#i-check"/></svg>نماذج للأسئلة الشائعة</li>
+          <li><svg><use href="#i-check"/></svg>جمل تساعدك تكسب وقت للتفكير</li>
+          <li><svg><use href="#i-check"/></svg>ماذا تقول إذا ما فهمت السؤال؟</li>
+          <li><svg><use href="#i-check"/></svg>كيف تطلب إعادة السؤال؟</li>
+          <li><svg><use href="#i-check"/></svg>عبارات انتقالية</li>
+          <li><svg><use href="#i-check"/></svg>Vocabulary مهم للمقابلات</li>
+          <li><svg><use href="#i-check"/></svg>أخطاء شائعة</li>
+        </ul>
+        <div class="callout">
+          <strong>مو كورس إنجليزي.</strong>
+          <span>عدة عملية تساعدك تتعامل مع المقابلة بالإنجليزي.</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- TOOL 05 -->
+    <article class="tool">
+      <div class="tool-media portrait reveal">
+        <img src="images/interview-day-800.webp"
+             srcset="images/interview-day-800.webp 800w, images/interview-day-1400.webp 1024w"
+             sizes="(min-width: 960px) 440px, 100vw"
+             width="1024" height="1536" loading="lazy" decoding="async"
+             alt="Interview Day Checklist — قائمة يوم المقابلة">
+      </div>
+      <div class="tool-copy reveal">
+        <p class="tool-tag"><span>05</span><span dir="ltr">Interview Day Checklist</span></p>
+        <h3 class="tool-title">من الليلة اللي قبلها… إلى ما بعد المقابلة.</h3>
+        <ol class="timeline">
+          <li><span class="t-dot"><svg><use href="#i-check"/></svg></span>قبل 24 ساعة</li>
+          <li><span class="t-dot"><svg><use href="#i-check"/></svg></span>قبل المقابلة</li>
+          <li><span class="t-dot"><svg><use href="#i-check"/></svg></span>أثناء المقابلة</li>
+          <li><span class="t-dot"><svg><use href="#i-check"/></svg></span>بعد المقابلة</li>
+        </ol>
+      </div>
+    </article>
+
+    <div class="center cta-inline reveal">
+      <a href="checkout.html" data-cta class="btn btn-primary btn-lg js-cta">
+        احصل على «مقابلتك» — 49 ريال
+        <svg class="btn-arrow"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     BONUSES (dark navy)
+     ========================================================= -->
+<section class="section dark bonuses" aria-labelledby="bonus-title">
+  <div class="container split">
+    <div class="split-copy">
+      <p class="gold-pill reveal"><svg><use href="#i-gift"/></svg>3 إضافات</p>
+      <h2 id="bonus-title" class="section-title reveal">ولسه فيه أكثر…</h2>
+      <p class="lead reveal">3 إضافات للمواقف اللي غالبًا تسبب أكبر توتر</p>
+
+      <div class="bonus-list">
+        <div class="bonus reveal">
+          <span class="bonus-ico"><svg><use href="#i-gift"/></svg></span>
+          <div>
+            <h3>مقابلتك بكرة؟</h3>
+            <p>خطة الاستعداد السريع خلال 60 دقيقة.</p>
+          </div>
+        </div>
+        <div class="bonus reveal">
+          <span class="bonus-ico"><svg><use href="#i-gift"/></svg></span>
+          <div>
+            <h3>كم راتبك المتوقع؟</h3>
+            <p>دليل الراتب والتفاوض.</p>
+          </div>
+        </div>
+        <div class="bonus reveal">
+          <span class="bonus-ico"><svg><use href="#i-gift"/></svg></span>
+          <div>
+            <h3>الحين دورك تسأل</h3>
+            <p>أسئلة ذكية تسألها للمحاور عندما يقول: <strong>"عندك أي أسئلة لنا؟"</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="checkout.html" data-cta class="split-media portrait img-cta reveal" aria-label="احصل على «مقابلتك» — 49 ريال">
+      <img src="images/bonuses-800.webp"
+           srcset="images/bonuses-800.webp 800w, images/bonuses-1400.webp 1024w"
+           sizes="(min-width: 960px) 460px, 100vw"
+           width="1024" height="1536" loading="lazy" decoding="async"
+           alt="الإضافات الثلاث: مقابلتك بكرة، كم راتبك المتوقع، الحين دورك تسأل">
+    </a>
+  </div>
+</section>
+
+<!-- =========================================================
+     CHATGPT OBJECTION
+     ========================================================= -->
+<section class="section" aria-labelledby="gpt-title">
+  <div class="container narrow">
+    <h2 id="gpt-title" class="section-title center reveal">"طيب… ما أقدر أسأل ChatGPT وخلاص؟"</h2>
+    <p class="answer-big center reveal">أكيد تقدر.</p>
+    <p class="center lead reveal">لكن الفرق مو في الوصول إلى ChatGPT. الفرق في إنك تعرف:</p>
+
+    <ul class="q-pills reveal">
+      <li>وش تسأله؟</li>
+      <li>كيف تتدرب؟</li>
+      <li>كيف تراجع إجابتك؟</li>
+      <li>كيف تحسنها؟</li>
+      <li>وش تحتاج تجهز قبل المقابلة؟</li>
+    </ul>
+
+    <!-- Comparison built in HTML (no static image) -->
+    <div class="compare">
+      <div class="compare-row without reveal">
+        <p class="compare-label">الاستخدام العشوائي</p>
+        <p class="compare-flow">
+          <span>سؤال عام</span><svg><use href="#i-arrow"/></svg>
+          <span>إجابة عامة</span><svg><use href="#i-arrow"/></svg>
+          <span>تدريب غير منظم</span>
+        </p>
+      </div>
+      <div class="compare-row with reveal">
+        <p class="compare-label">باستخدام نظام «مقابلتك»</p>
+        <p class="compare-flow">
+          <span>افهم السؤال</span><svg><use href="#i-arrow"/></svg>
+          <span>جهّز إجابتك</span><svg><use href="#i-arrow"/></svg>
+          <span>تدرّب باستخدام ChatGPT</span><svg><use href="#i-arrow"/></svg>
+          <span class="ok">راجع وحسّن</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="insight reveal">
+      <p class="insight-main">«مقابلتك» ما تبيعك الوصول للذكاء الاصطناعي.</p>
+      <p>هي تعطيك <strong>النظام والخطوات والقوالب</strong> اللي تساعدك تستخدم الأدوات المتاحة بطريقة عملية للاستعداد للمقابلة.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     AUDIENCE
+     ========================================================= -->
+<section class="section alt" aria-labelledby="aud-title">
+  <div class="container">
+    <h2 id="aud-title" class="section-title center reveal">
+      سواء كانت أول مقابلة لك…
+      <span class="hl">أو مقابلتك للخطوة المهنية الجاية.</span>
+    </h2>
+
+    <div class="aud-grid">
+      <div class="aud-card reveal">
+        <span class="aud-ico"><svg><use href="#i-grad"/></svg></span>
+        <h3>حديث تخرج؟</h3>
+        <p>تعلم كيف تتعامل مع الأسئلة حتى لو خبرتك العملية محدودة، وكيف تستفيد من دراستك وتدريبك ومشاريعك.</p>
+      </div>
+      <div class="aud-card reveal">
+        <span class="aud-ico"><svg><use href="#i-star"/></svg></span>
+        <h3>عندك خبرة؟</h3>
+        <p>رتب إنجازاتك، جهز قصص STAR، واستعد لأسئلة الانتقال الوظيفي والتحديات والراتب.</p>
+      </div>
+      <div class="aud-card reveal">
+        <span class="aud-ico"><svg><use href="#i-globe"/></svg></span>
+        <h3>المقابلة بالإنجليزي؟</h3>
+        <p>استخدم English Interview Survival Kit وتدرب على إجاباتك قبل الموعد.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     COMPLETE OFFER
+     ========================================================= -->
+<section class="section offer" id="offer" aria-labelledby="offer-title">
+  <div class="container">
+    <h2 id="offer-title" class="section-title center reveal">
+      كل اللي تحتاجه للاستعداد…
+      <span class="hl">في حقيبة واحدة.</span>
+    </h2>
+
+    <div class="offer-grid">
+      <div class="offer-media reveal">
+        <img src="images/complete-bundle-800.webp"
+             srcset="images/complete-bundle-800.webp 800w, images/complete-bundle-1400.webp 1400w"
+             sizes="(min-width: 960px) 620px, 100vw"
+             width="1400" height="933" loading="lazy" decoding="async"
+             alt="حقيبة «مقابلتك» الكاملة: دليل إجابتك، صانع الإجابات، مدرب مقابلتك AI، English Interview Survival Kit، Interview Day Checklist + 3 إضافات">
+      </div>
+
+      <div class="offer-card reveal">
+        <div class="offer-brand">
+          <span class="brand-icon lg"><svg><use href="#i-bag"/></svg></span>
+          <p class="offer-name">مقابلتك</p>
+        </div>
+
+        <p class="offer-sub">5 أدوات أساسية</p>
+        <ul class="checklist offer-list">
+          <li><svg><use href="#i-check"/></svg>دليل إجابتك</li>
+          <li><svg><use href="#i-check"/></svg>صانع الإجابات</li>
+          <li><svg><use href="#i-check"/></svg>مدرب مقابلتك AI</li>
+          <li><svg><use href="#i-check"/></svg><span dir="ltr">English Interview Survival Kit</span></li>
+          <li><svg><use href="#i-check"/></svg><span dir="ltr">Interview Day Checklist</span></li>
+        </ul>
+
+        <p class="offer-sub gold">وتحصل أيضًا على:</p>
+        <ul class="gift-list">
+          <li><svg><use href="#i-gift"/></svg>مقابلتك بكرة؟</li>
+          <li><svg><use href="#i-gift"/></svg>كم راتبك المتوقع؟</li>
+          <li><svg><use href="#i-gift"/></svg>الحين دورك تسأل</li>
+        </ul>
+
+        <div class="offer-price">
+          <span class="price-num">49</span><span class="price-cur">ريال</span>
+        </div>
+
+        <a href="checkout.html" data-cta class="btn btn-primary btn-lg btn-block js-cta">
+          احصل على حقيبة «مقابلتك» الآن
+          <svg class="btn-arrow"><use href="#i-arrow"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ (native <details> — no JS needed)
+     ========================================================= -->
+<section class="section alt" aria-labelledby="faq-title">
+  <div class="container narrow">
+    <h2 id="faq-title" class="section-title center reveal">أسئلة شائعة</h2>
+
+    <div class="faq">
+      <details class="reveal">
+        <summary>هل «مقابلتك» مناسبة لحديثي التخرج؟<svg><use href="#i-plus"/></svg></summary>
+        <p>نعم. الحقيبة تشمل طريقة التعامل مع الأسئلة عندما تكون خبرتك محدودة، وكيف تستفيد من دراستك وتدريبك ومشاريعك ومواقفك السابقة في بناء الإجابات.</p>
+      </details>
+      <details class="reveal">
+        <summary>هل تناسب أصحاب الخبرة؟<svg><use href="#i-plus"/></svg></summary>
+        <p>نعم. تشمل بناء قصص STAR، عرض الإنجازات، الانتقال بين الوظائف، المواقف المهنية، والأسئلة المتعلقة بالراتب.</p>
+      </details>
+      <details class="reveal">
+        <summary>المحتوى عربي أو إنجليزي؟<svg><use href="#i-plus"/></svg></summary>
+        <p>الشرح الأساسي بالعربية، مع نماذج باللغة الإنجليزية وقسم English Interview Survival Kit المخصص للاستعداد للمقابلات الإنجليزية.</p>
+      </details>
+      <details class="reveal">
+        <summary>هل مدرب مقابلتك AI برنامج مستقل؟<svg><use href="#i-plus"/></svg></summary>
+        <p>لا. هو نظام Prompts وخطوات تدريب مصممة للاستخدام مع ChatGPT لمساعدتك على تنظيم التدريب ومراجعة إجاباتك.</p>
+      </details>
+      <details class="reveal">
+        <summary>هل الحقيبة تضمن قبولي في الوظيفة؟<svg><use href="#i-plus"/></svg></summary>
+        <p>لا توجد أداة يمكنها ضمان قرار التوظيف. «مقابلتك» مصممة لمساعدتك على الاستعداد والتدريب وتحسين طريقة عرض خبرتك، بينما قرار التوظيف يعتمد على الشركة ومتطلبات الوظيفة وعوامل أخرى.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FINAL CTA
+     ========================================================= -->
+<section class="final" id="final" aria-labelledby="final-title">
+  <div class="container narrow center">
+    <h2 id="final-title" class="final-title reveal">موعد المقابلة تحدد؟</h2>
+    <p class="final-sub reveal">لا تخلي أول مرة تجاوب فيها عن الأسئلة…<br><strong>تكون قدام المحاور.</strong></p>
+
+    <p class="final-steps reveal">
+      <span>جهّز إجاباتك.</span>
+      <span>تدرّب عليها.</span>
+      <span>وادخل مقابلتك وأنت عارف وش تقول.</span>
+    </p>
+
+    <div class="final-brand reveal">
+      <p class="brand big"><span class="brand-icon"><svg><use href="#i-bag"/></svg></span><span class="brand-name">مقابلتك</span></p>
+      <p class="tagline">استعد. تدرّب. ادخل جاهز.</p>
+    </div>
+
+    <div class="final-price reveal"><span class="price-num">49</span><span class="price-cur">ريال</span></div>
+
+    <a href="checkout.html" data-cta class="btn btn-light btn-lg js-cta reveal">
+      احصل على «مقابلتك» الآن
+      <svg class="btn-arrow"><use href="#i-arrow"/></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="brand small"><span class="brand-icon"><svg><use href="#i-bag"/></svg></span><span class="brand-name">مقابلتك</span></p>
+    <nav class="footer-links" aria-label="روابط قانونية">
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="terms.html">الشروط والأحكام</a>
+      <a href="refund.html">سياسة الاسترجاع</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="#" data-consent-open>إعدادات ملفات الارتباط</a>
+    </nav>
+    <p>© <span id="year">2026</span> مقابلتك. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<!-- =========================================================
+     STICKY MOBILE CTA (shows after hero, hides near offer/final)
+     ========================================================= -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="sticky-inner">
+    <div class="sticky-info">
+      <span class="sticky-name">مقابلتك</span>
+      <span class="sticky-price">49 ريال</span>
+    </div>
+    <a href="checkout.html" data-cta class="btn btn-primary js-cta" tabindex="-1">احصل عليها الآن</a>
+  </div>
+</div>
+
+<!-- Config first (edit config.js), then shared tracking/consent, then page script -->
+<script src="config.js"></script>
+<script src="common.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>

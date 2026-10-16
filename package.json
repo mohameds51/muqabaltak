@@ -1,0 +1,11 @@
+{
+  "name": "muqabaltak-landing",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "description": "مقابلتك — Landing page + waitlist (Vercel static + serverless)",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

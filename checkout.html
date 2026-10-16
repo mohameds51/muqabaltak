@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>سجّل اهتمامك | مقابلتك</title>
+  <meta name="description" content="سجّل اهتمامك بحقيبة «مقابلتك» واحجز سعر الإطلاق 49 ريال. لا يوجد أي مبلغ مطلوب الآن.">
+  <!-- Waitlist page: keep it out of search results -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0B1B3F">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body class="page">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 6V4.8A1.8 1.8 0 0 1 10.8 3h2.4A1.8 1.8 0 0 1 15 4.8V6M4.5 6h15A1.5 1.5 0 0 1 21 7.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5v-11A1.5 1.5 0 0 1 4.5 6ZM3 11.5c5.6 3 12.4 3 18 0M12 12.5v1.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+</svg>
+
+<header class="site-header page-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="مقابلتك — صفحة المنتج">
+      <span class="brand-icon"><svg><use href="#i-bag"/></svg></span>
+      <span class="brand-name">مقابلتك</span>
+    </a>
+    <a href="index.html" class="back-link"><svg><use href="#i-back"/></svg>صفحة المنتج</a>
+  </div>
+</header>
+
+<main class="checkout-main">
+  <div class="container narrow-sm">
+
+    <!-- ===== Intro ===== -->
+    <section class="co-intro" aria-labelledby="co-title">
+      <p class="status-pill"><span class="dot" aria-hidden="true"></span>تسجيل اهتمام — بدون دفع</p>
+      <h1 id="co-title">نسختك من «مقابلتك» قيد التجهيز</h1>
+      <p class="co-thanks">شكرًا لاهتمامك بحقيبة «مقابلتك»!</p>
+      <p>نعمل حاليًا على تجهيز النسخة الأولى من الحقيبة، ولم نفتح البيع بعد.</p>
+      <p>تقدر تسجّل اهتمامك الآن، ونبلغك أول ما تصبح متاحة، مع الاحتفاظ لك بسعر الإطلاق.</p>
+    </section>
+
+    <!-- ===== Summary ===== -->
+    <dl class="co-summary" aria-label="ملخص">
+      <div><dt>المنتج</dt><dd>حقيبة مقابلتك للاستعداد لمقابلة العمل</dd></div>
+      <div><dt>سعر الإطلاق</dt><dd><strong>49 ريال سعودي</strong></dd></div>
+      <div><dt>الحالة</dt><dd>النسخة الأولى قيد التجهيز</dd></div>
+      <div class="pay-now"><dt>الدفع الآن</dt><dd><strong>لا يوجد أي مبلغ مطلوب</strong></dd></div>
+    </dl>
+
+    <!-- ===== Form ===== -->
+    <section class="co-card" id="formCard" aria-labelledby="form-title">
+      <h2 id="form-title" class="co-form-title">سجّل اهتمامك</h2>
+
+      <div class="form-alert" id="formAlert" role="alert" hidden></div>
+
+      <form id="signupForm" novalidate>
+        <div class="field">
+          <label for="first_name">الاسم الأول <span class="req" aria-hidden="true">*</span></label>
+          <input id="first_name" name="first_name" type="text" autocomplete="given-name" maxlength="40" required
+                 aria-describedby="err-first_name">
+          <p class="field-error" id="err-first_name"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">البريد الإلكتروني <span class="req" aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" dir="ltr" maxlength="254" required
+                 placeholder="name@example.com" aria-describedby="err-email">
+          <p class="field-error" id="err-email"></p>
+        </div>
+
+        <div class="field">
+          <label for="whatsapp_number">رقم واتساب <span class="opt">(اختياري)</span></label>
+          <div class="phone" dir="ltr">
+            <select id="whatsapp_code" name="whatsapp_code" aria-label="مفتاح الدولة">
+              <option value="966" selected>🇸🇦 +966</option>
+              <option value="971">🇦🇪 +971</option>
+              <option value="965">🇰🇼 +965</option>
+              <option value="974">🇶🇦 +974</option>
+              <option value="973">🇧🇭 +973</option>
+              <option value="968">🇴🇲 +968</option>
+              <option value="20">🇪🇬 +20</option>
+              <option value="962">🇯🇴 +962</option>
+              <option value="212">🇲🇦 +212</option>
+              <option value="216">🇹🇳 +216</option>
+              <option value="213">🇩🇿 +213</option>
+              <option value="964">🇮🇶 +964</option>
+              <option value="963">🇸🇾 +963</option>
+              <option value="961">🇱🇧 +961</option>
+              <option value="970">🇵🇸 +970</option>
+              <option value="249">🇸🇩 +249</option>
+              <option value="218">🇱🇾 +218</option>
+              <option value="967">🇾🇪 +967</option>
+              <option value="44">🇬🇧 +44</option>
+              <option value="1">🇺🇸 +1</option>
+            </select>
+            <input id="whatsapp_number" name="whatsapp_number" type="tel" inputmode="numeric" autocomplete="tel-national"
+                   maxlength="15" placeholder="5XXXXXXXX" aria-describedby="hint-wa err-whatsapp_number">
+          </div>
+          <p class="field-hint" id="hint-wa">للسعودية: 9 أرقام تبدأ بـ 5، بدون الصفر.</p>
+          <p class="field-error" id="err-whatsapp_number"></p>
+        </div>
+
+        <!-- Honeypot (anti-bot): hidden from people and screen readers -->
+        <div class="hp" aria-hidden="true">
+          <label for="company">اترك هذا الحقل فارغًا</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- Required consent (NOT pre-checked) -->
+        <div class="check">
+          <input id="consent_processing" name="consent_processing" type="checkbox" required aria-describedby="err-consent_processing">
+          <label for="consent_processing">
+            أوافق على معالجة بياناتي (الاسم والبريد، ورقم الواتساب إن أضفته) لإبلاغي بتوفّر «مقابلتك» وتفاصيل الإطلاق، وفق
+            <a href="privacy.html" target="_blank" rel="noopener">سياسة الخصوصية</a>. <span class="req" aria-hidden="true">*</span>
+          </label>
+        </div>
+        <p class="field-error" id="err-consent_processing"></p>
+
+        <!-- Optional, separate marketing consent (NOT pre-checked) -->
+        <div class="check">
+          <input id="consent_marketing" name="consent_marketing" type="checkbox">
+          <label for="consent_marketing">
+            أرغب أيضًا في استلام رسائل تسويقية مستقبلية من «مقابلتك». <span class="opt">(اختياري — تقدر تلغي في أي وقت)</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">
+          <span class="btn-label">سجّلني بسعر الإطلاق <span class="nowrap">49 ريال</span></span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-note">
+          لن يتم تحصيل أي مبلغ الآن. سنستخدم بياناتك لإبلاغك بتوفر الحقيبة وتفاصيل الإطلاق، وفق
+          <a href="privacy.html" target="_blank" rel="noopener">سياسة الخصوصية</a>.
+          التسجيل تسجيل اهتمام وليس شراءً — راجع <a href="terms.html" target="_blank" rel="noopener">الشروط والأحكام</a>.
+        </p>
+      </form>
+    </section>
+
+    <!-- ===== Success state ===== -->
+    <section class="co-card co-success" id="successCard" hidden tabindex="-1" aria-labelledby="ok-title">
+      <span class="ok-icon"><svg><use href="#i-check"/></svg></span>
+      <h2 id="ok-title">تم تسجيل اهتمامك بنجاح!</h2>
+      <p>سنتواصل معك عند إطلاق النسخة الأولى من «مقابلتك».</p>
+      <p class="ok-meta">هذا تأكيد لتسجيل اهتمامك فقط — لم تتم أي عملية شراء أو دفع.</p>
+      <a href="index.html" class="btn btn-ghost">العودة لصفحة المنتج</a>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="brand small"><span class="brand-icon"><svg><use href="#i-bag"/></svg></span><span class="brand-name">مقابلتك</span></p>
+    <nav class="footer-links" aria-label="روابط قانونية">
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="terms.html">الشروط والأحكام</a>
+      <a href="refund.html">سياسة الاسترجاع</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="#" data-consent-open>إعدادات ملفات الارتباط</a>
+    </nav>
+    <p>© <span id="year">2026</span> مقابلتك. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="common.js" defer></script>
+<script src="checkout.js" defer></script>
+</body>
+</html>
