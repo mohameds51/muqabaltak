@@ -173,6 +173,10 @@ svg { width: 1em; height: 1em; flex-shrink: 0; }
 .price-num { font-size: 2.4rem; line-height: 1; letter-spacing: -1px; }
 .price-cur { font-size: 1.1rem; }
 
+/* Launch-price label */
+.price-label { align-self: center; margin-inline-end: 4px; font-size: .8rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.final-price .price-label { color: #8FB0FF; }
+
 .hero-visual img {
   width: 100%; border-radius: var(--radius);
   box-shadow: 0 30px 60px -30px rgba(11,27,63,.45);
@@ -488,7 +492,9 @@ a.split-media { display: block; }
 .sticky-info { display: grid; line-height: 1.3; }
 .sticky-name { font-weight: 700; color: var(--navy-800); }
 .sticky-price { font-weight: 700; color: var(--blue); }
-.sticky-cta .btn { flex: 1; max-width: 240px; }
+.sticky-cta .btn { flex: 1; max-width: 240px; white-space: nowrap; padding-inline: 16px; }
+.sticky-info { min-width: 0; }
+.sticky-price { font-size: .88rem; white-space: nowrap; }
 
 /* =========================================================
    FOOTER LINKS
@@ -497,26 +503,9 @@ a.split-media { display: block; }
 .footer-links a { color: #c3cce4; padding-block: 6px; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(195,204,228,.35); }
 .footer-links a:hover { color: #fff; }
 
-/* =========================================================
-   COOKIE CONSENT BANNER
-   ========================================================= */
-.consent {
-  position: fixed; inset-inline: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 80;
-  max-width: 560px; margin-inline: auto; padding: 16px;
-  background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 16px;
-  box-shadow: 0 20px 50px -15px rgba(11,27,63,.45);
-  font-size: .92rem; line-height: 1.7;
-}
-.consent[hidden] { display: none; }
-.consent a { color: var(--blue-600); text-decoration: underline; }
-.consent-actions { display: flex; gap: 8px; margin-top: 12px; }
-.consent-actions .btn { flex: 1; }
+/* Secondary button */
 .btn-ghost { background: var(--bg-alt); color: var(--navy-800); border: 1px solid var(--line); box-shadow: none; }
 .btn-ghost:hover { background: #e9edf6; }
-body.consent-open .sticky-cta { transform: translateY(110%); }
-
-/* Missing owner-supplied data (contact, owner name) — visible on purpose */
-.missing { display: inline-block; padding: 0 6px; border-radius: 6px; background: #FFF3CD; color: #8A5A00; font-weight: 700; font-size: .92em; }
 
 /* =========================================================
    REVEAL ANIMATION (fade-up) — only when JS is available

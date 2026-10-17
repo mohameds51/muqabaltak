@@ -7,7 +7,6 @@
 
   var CFG = window.MUQ_CONFIG || {};
   var MUQ = window.MUQ || { track: function () { return false; }, withAttribution: function (h) { return h; } };
-  var PRODUCT = { content_name: 'Muqabaltak', content_type: 'product', value: 49, currency: 'SAR' };
 
   var header = document.querySelector('.site-header');
   var sticky = document.getElementById('stickyCta');
@@ -53,36 +52,46 @@
   }
 
   /* =========================================================
-     TRACKING
+     MEASUREMENT
      ========================================================= */
 
-  /* 1) ViewContent — once per page view.
-        If consent is still pending, it is sent once if the visitor accepts on this page. */
-  MUQ.track('ViewContent', PRODUCT, { queue: true });
+  /* 1) First-party visit count (cookieless, once per tab session) */
+  MUQ.count && MUQ.count('view_home');
 
-  /* 2) CTA → checkout.html (keeps UTM / fbclid) + InitiateCheckout
-        - Every buy button has [data-cta].
-        - One delegated listener → one event per click, even with nested elements (img inside link).
-        - Guard prevents double-fire on double-tap. */
+  /* 1b) Meta ViewContent — the visitor is viewing the bundle offer page.
+         Once per page load (PageView is sent by common.js). */
+  MUQ.track && MUQ.track('ViewContent', { content_name: 'Muqabaltak', content_type: 'product', value: 49, currency: 'SAR' });
+
+  /* 2) CTA → checkout.html, keeping UTM / fbclid in the link.
+        Each button has data-cta="<position>" (header, hero, coach, tools, bonuses, offer, final, sticky).
+        On a real (trusted) click:
+          - first-party "cta_click" count (once per session; position of the first click is stored)
+          - Meta custom event PurchaseIntent — once per tab session (avoids double counting
+            when a visitor clicks several buttons), only real (trusted) clicks
+        No InitiateCheckout / Purchase: nothing is being paid for. */
   var checkoutUrl = CFG.CHECKOUT_URL || 'checkout.html';
-  var ctas = document.querySelectorAll('a[data-cta]');
-  ctas.forEach(function (a) { a.setAttribute('href', MUQ.withAttribution(checkoutUrl)); });
+  document.querySelectorAll('a[data-cta]').forEach(function (a) {
+    a.setAttribute('href', MUQ.withAttribution(checkoutUrl));
+  });
 
   var navigating = false;
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[data-cta]');
-    if (!a) return;
-    // Let new-tab / modified clicks behave normally (no event, no hijack)
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    e.preventDefault();
-    if (navigating) return;
-    navigating = true;
+    if (!a || !e.isTrusted) return;
+    var cta = a.getAttribute('data-cta') || 'unknown';
+    MUQ.count && MUQ.count('cta_click', { cta: cta });   // sendBeacon survives navigation
 
-    var href = a.getAttribute('href');
-    var sent = MUQ.track('InitiateCheckout', PRODUCT);
-    // Short delay only when the Pixel is active, so the request can leave before navigation
-    window.setTimeout(function () { window.location.href = href; }, sent ? 250 : 0);
+    // New-tab / modified clicks: let the browser handle them
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (navigating) { e.preventDefault(); return; }   // double-tap guard
+    var sent = MUQ.trackOncePerSession && MUQ.trackOncePerSession('custom', 'PurchaseIntent', { content_name: 'Muqabaltak', currency: 'SAR', value: 49 });
+    if (sent) {
+      // Pixel active: give the request a moment to leave before navigating
+      e.preventDefault();
+      navigating = true;
+      var href = a.getAttribute('href');
+      window.setTimeout(function () { window.location.href = href; }, 250);
+    }
   });
-  // Back/forward cache: allow clicking again
   window.addEventListener('pageshow', function () { navigating = false; });
 })();

@@ -17,8 +17,10 @@
 import pg from 'pg';
 import crypto from 'node:crypto';
 
-// غيّر هذا الرقم إذا عدّلت نص الموافقة في checkout.html أو سياسة الخصوصية
-const CONSENT_VERSION = 'privacy-draft-2026-10';
+// نسخة إشعار الخصوصية الظاهر بجوار زر الإرسال في checkout.html.
+// غيّرها إذا عدّلت نص الإشعار أو سياسة الخصوصية.
+// consent_processing = TRUE يعني: أُرسل النموذج بعد عرض هذا الإشعار (لا توجد خانة اختيار).
+const CONSENT_VERSION = 'notice-2026-10-16';
 
 // حدود مكافحة السبام
 const MIN_FILL_MS = 2500;            // أقل وقت معقول لتعبئة النموذج
@@ -121,8 +123,9 @@ function validate(body) {
     }
   }
 
-  if (body.consent_processing !== true) errors.consent_processing = 'يلزم الموافقة على معالجة بياناتك لإتمام التسجيل.';
-  const consentMarketing = body.consent_marketing === true;
+  // The form shows a privacy notice next to the submit button (no checkbox). The client sends notice_ack:true.
+  if (body.notice_ack !== true && body.consent_processing !== true) errors.form = 'طلب غير صالح.';
+  const consentMarketing = false;   // no marketing opt-in is collected in this version
 
   const utm = {};
   const src = body.attribution && typeof body.attribution === 'object' ? body.attribution : {};
@@ -190,9 +193,19 @@ export default async function handler(req, res) {
     );
 
     if (r.rowCount === 0) return send(res, 409, { ok: false, code: 'duplicate' });
+
+    // Anonymous first-party lead count (campaign level only — survives the 90-day purge of signups).
+    // Non-fatal: the registration is already saved.
+    try {
+      await db.query(
+        `INSERT INTO events (type, utm_source, utm_medium, utm_campaign, utm_content) VALUES ('lead', $1, $2, $3, $4) RETURNING id`,
+        [data.utm.utm_source, data.utm.utm_medium, data.utm.utm_campaign, data.utm.utm_content]
+      );
+    } catch (e) { console.error('[register] lead count failed:', e.code || 'error'); }
+
     return send(res, 201, { ok: true, id: String(r.rows[0].id) });
   } catch (err) {
-    console.error('[register] db error:', err.message);
+    console.error('[register] db error:', err.code || 'error');   // no message/values in logs
     return send(res, 503, { ok: false, code: 'server_error' });
   }
 }

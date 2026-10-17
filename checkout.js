@@ -15,6 +15,9 @@
   var TIMEOUT_MS = 15000;
   var startedAt = Date.now();
 
+  // First-party, cookieless page-view count (once per tab session)
+  if (MUQ.count) MUQ.count('view_checkout');
+
   var form = document.getElementById('signupForm');
   var btn = document.getElementById('submitBtn');
   var alertBox = document.getElementById('formAlert');
@@ -56,21 +59,18 @@
       else if (code === '966' && !/^5\d{8}$/.test(local)) e.whatsapp_number = 'رقم الجوال السعودي يبدأ بـ 5 ويتكون من 9 أرقام (مثال: 5XXXXXXXX).';
     }
 
-    if (!document.getElementById('consent_processing').checked) {
-      e.consent_processing = 'يلزم الموافقة على معالجة بياناتك لإتمام التسجيل.';
-    }
     return e;
   }
 
   function showErrors(errors) {
-    ['first_name', 'email', 'whatsapp_number', 'consent_processing'].forEach(function (k) {
+    ['first_name', 'email', 'whatsapp_number'].forEach(function (k) {
       var p = document.getElementById('err-' + k);
       var input = document.getElementById(k);
       var msg = errors[k] || '';
       if (p) p.textContent = msg;
       if (input) input.setAttribute('aria-invalid', msg ? 'true' : 'false');
     });
-    var first = ['first_name', 'email', 'whatsapp_number', 'consent_processing'].filter(function (k) { return errors[k]; })[0];
+    var first = ['first_name', 'email', 'whatsapp_number'].filter(function (k) { return errors[k]; })[0];
     if (first) document.getElementById(first).focus();
   }
 
@@ -110,8 +110,10 @@
       email: val('email'),
       whatsapp_code: val('whatsapp_code'),
       whatsapp_number: val('whatsapp_number'),
-      consent_processing: document.getElementById('consent_processing').checked === true,
-      consent_marketing: document.getElementById('consent_marketing').checked === true,
+      // No checkboxes: submitting the form next to the visible privacy notice is the
+      // user's request to be contacted about availability. The server stores the
+      // notice version. No marketing opt-in is collected.
+      notice_ack: true,
       company: document.getElementById('company').value,   // honeypot
       elapsed_ms: Date.now() - startedAt,
       attribution: MUQ.getAttribution(),                     // UTM / fbclid only
@@ -136,7 +138,7 @@
         setBusy(false);
 
         // ✅ Saved for real: 201 + ok + id from the database
-        if (r.status === 201 && r.data && r.data.ok === true && r.data.id) {
+        if (r.status === 201 && r.data && r.data.ok === true && /^\d+$/.test(String(r.data.id || ''))) {
           onSuccess(r.data.id);
           return;
         }
@@ -156,15 +158,32 @@
       });
   });
 
+  var leadSentFor = {};
   function onSuccess(id) {
-    // Lead — only here, after the server confirmed the row was saved.
-    // No email/phone is sent to Meta. eventID allows future CAPI de-duplication.
-    MUQ.track('Lead', { content_name: 'Muqabaltak', value: 49, currency: 'SAR' }, { eventID: 'lead-' + id, queue: true });
+    // Lead — only after the server confirmed the row was saved (201 + ok + id),
+    // only if the Meta Pixel is active (enabled in config.js and not opted out),
+    // and only once per registration.
+    // Nothing personal is sent: no name, email, phone, IP, or database id.
+    var key = 'muq_lead_' + id;
+    var already = leadSentFor[id];
+    try { already = already || sessionStorage.getItem(key) === '1'; } catch (e) {}
+    if (!already) {
+      leadSentFor[id] = true;
+      try { sessionStorage.setItem(key, '1'); } catch (e) {}
+      MUQ.track('Lead', { content_name: 'Muqabaltak', value: 49, currency: 'SAR' }, { eventID: randomId() });
+      // (first-party lead count is recorded server-side by /api/register — nothing to do here)
+    }
 
     form.reset();
     formCard.hidden = true;
     successCard.hidden = false;
     successCard.focus();
     successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Random, non-personal event id (lets Meta de-duplicate if CAPI is added later)
+  function randomId() {
+    try { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
+    return 'lead-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
   }
 })();

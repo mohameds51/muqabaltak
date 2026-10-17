@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>سجّل اهتمامك | مقابلتك</title>
-  <meta name="description" content="سجّل اهتمامك بحقيبة «مقابلتك» واحجز سعر الإطلاق 49 ريال. لا يوجد أي مبلغ مطلوب الآن.">
+  <meta name="description" content="حقيبة «مقابلتك» غير متاحة للشراء حاليًا. سجّل اهتمامك مجانًا وسنراسلك عند توفرها بسعر الإطلاق 49 ريالًا.">
   <!-- Waitlist page: keep it out of search results -->
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#0B1B3F">
@@ -36,20 +36,21 @@
 <main class="checkout-main">
   <div class="container narrow-sm">
 
-    <!-- ===== Intro ===== -->
+    <!-- ===== Intro + disclosure — shown BEFORE any data is requested ===== -->
     <section class="co-intro" aria-labelledby="co-title">
-      <p class="status-pill"><span class="dot" aria-hidden="true"></span>تسجيل اهتمام — بدون دفع</p>
-      <h1 id="co-title">نسختك من «مقابلتك» قيد التجهيز</h1>
-      <p class="co-thanks">شكرًا لاهتمامك بحقيبة «مقابلتك»!</p>
-      <p>نعمل حاليًا على تجهيز النسخة الأولى من الحقيبة، ولم نفتح البيع بعد.</p>
-      <p>تقدر تسجّل اهتمامك الآن، ونبلغك أول ما تصبح متاحة، مع الاحتفاظ لك بسعر الإطلاق.</p>
+      <p class="status-pill"><span class="dot" aria-hidden="true"></span>تسجيل مجاني — بدون دفع</p>
+      <h1 id="co-title">شكرًا لاهتمامك بحقيبة «مقابلتك»</h1>
     </section>
+
+    <div class="co-notice" role="note">
+      <p class="co-notice-main">حقيبة مقابلتك غير متاحة للشراء حاليًا. يمكنك تسجيل اهتمامك مجانًا، وسنراسلك عند توفرها بسعر الإطلاق 49 ريالًا إذا رغبت.</p>
+    </div>
 
     <!-- ===== Summary ===== -->
     <dl class="co-summary" aria-label="ملخص">
       <div><dt>المنتج</dt><dd>حقيبة مقابلتك للاستعداد لمقابلة العمل</dd></div>
       <div><dt>سعر الإطلاق</dt><dd><strong>49 ريال سعودي</strong></dd></div>
-      <div><dt>الحالة</dt><dd>النسخة الأولى قيد التجهيز</dd></div>
+      <div><dt>التوفر</dt><dd>غير متاحة للشراء حاليًا</dd></div>
       <div class="pay-now"><dt>الدفع الآن</dt><dd><strong>لا يوجد أي مبلغ مطلوب</strong></dd></div>
     </dl>
 
@@ -112,33 +113,17 @@
           <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
         </div>
 
-        <!-- Required consent (NOT pre-checked) -->
-        <div class="check">
-          <input id="consent_processing" name="consent_processing" type="checkbox" required aria-describedby="err-consent_processing">
-          <label for="consent_processing">
-            أوافق على معالجة بياناتي (الاسم والبريد، ورقم الواتساب إن أضفته) لإبلاغي بتوفّر «مقابلتك» وتفاصيل الإطلاق، وفق
-            <a href="privacy.html" target="_blank" rel="noopener">سياسة الخصوصية</a>. <span class="req" aria-hidden="true">*</span>
-          </label>
-        </div>
-        <p class="field-error" id="err-consent_processing"></p>
-
-        <!-- Optional, separate marketing consent (NOT pre-checked) -->
-        <div class="check">
-          <input id="consent_marketing" name="consent_marketing" type="checkbox">
-          <label for="consent_marketing">
-            أرغب أيضًا في استلام رسائل تسويقية مستقبلية من «مقابلتك». <span class="opt">(اختياري — تقدر تلغي في أي وقت)</span>
-          </label>
-        </div>
-
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">
-          <span class="btn-label">سجّلني بسعر الإطلاق <span class="nowrap">49 ريال</span></span>
+          <span class="btn-label">سجّل اهتمامي مجانًا</span>
           <span class="spinner" aria-hidden="true"></span>
         </button>
 
-        <p class="form-note">
-          لن يتم تحصيل أي مبلغ الآن. سنستخدم بياناتك لإبلاغك بتوفر الحقيبة وتفاصيل الإطلاق، وفق
-          <a href="privacy.html" target="_blank" rel="noopener">سياسة الخصوصية</a>.
-          التسجيل تسجيل اهتمام وليس شراءً — راجع <a href="terms.html" target="_blank" rel="noopener">الشروط والأحكام</a>.
+        <!-- Short privacy notice next to the submit button (no checkboxes) -->
+        <p class="form-note" id="privacyNotice">
+          نستخدم اسمك وبريدك، ورقم الواتساب إن أضفته، فقط لمراسلتك بخصوص توفر حقيبة «مقابلتك»،
+          ونحذفها خلال 90 يومًا كحد أقصى. لن يتم تحصيل أي مبلغ.
+          <a href="privacy.html" target="_blank" rel="noopener">سياسة الخصوصية</a> ·
+          <a href="terms.html" target="_blank" rel="noopener">الشروط والأحكام</a>
         </p>
       </form>
     </section>
@@ -147,7 +132,7 @@
     <section class="co-card co-success" id="successCard" hidden tabindex="-1" aria-labelledby="ok-title">
       <span class="ok-icon"><svg><use href="#i-check"/></svg></span>
       <h2 id="ok-title">تم تسجيل اهتمامك بنجاح!</h2>
-      <p>سنتواصل معك عند إطلاق النسخة الأولى من «مقابلتك».</p>
+      <p>سنراسلك عند توفر الحقيبة بسعر الإطلاق 49 ريالًا، والقرار في الشراء لك.</p>
       <p class="ok-meta">هذا تأكيد لتسجيل اهتمامك فقط — لم تتم أي عملية شراء أو دفع.</p>
       <a href="index.html" class="btn btn-ghost">العودة لصفحة المنتج</a>
     </section>
@@ -161,9 +146,8 @@
     <nav class="footer-links" aria-label="روابط قانونية">
       <a href="privacy.html">سياسة الخصوصية</a>
       <a href="terms.html">الشروط والأحكام</a>
-      <a href="refund.html">سياسة الاسترجاع</a>
+      <a href="refund.html">سياسة الإلغاء والاسترجاع</a>
       <a href="contact.html">تواصل معنا</a>
-      <a href="#" data-consent-open>إعدادات ملفات الارتباط</a>
     </nav>
     <p>© <span id="year">2026</span> مقابلتك. جميع الحقوق محفوظة.</p>
   </div>
