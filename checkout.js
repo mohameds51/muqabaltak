@@ -158,21 +158,18 @@
       });
   });
 
-  var leadSentFor = {};
   function onSuccess(id) {
-    // Lead — only after the server confirmed the row was saved (201 + ok + id),
-    // only if the Meta Pixel is active (enabled in config.js and not opted out),
-    // and only once per registration.
-    // Nothing personal is sent: no name, email, phone, IP, or database id.
-    var key = 'muq_lead_' + id;
-    var already = leadSentFor[id];
-    try { already = already || sessionStorage.getItem(key) === '1'; } catch (e) {}
-    if (!already) {
-      leadSentFor[id] = true;
-      try { sessionStorage.setItem(key, '1'); } catch (e) {}
-      MUQ.track('Lead', { content_name: 'Muqabaltak', value: 49, currency: 'SAR' }, { eventID: randomId() });
-      // (first-party lead count is recorded server-side by /api/register — nothing to do here)
-    }
+    // Lead — only after the server confirmed the row was saved (201 + ok + numeric id).
+    // Once per registration (once-key uses the local id; the id itself is never sent anywhere).
+    // The page stays open, so the event is handed/queued here; if the Meta library is not
+    // loaded yet, it is queued and sent when it loads. No name/email/phone/IP/id is sent.
+    try {
+      if (MUQ.trackAction) {
+        MUQ.trackAction({ meta: { kind: 'standard', name: 'Lead', params: { content_name: 'Muqabaltak', value: 49, currency: 'SAR' } },
+                          clarity: 'lead', onceKey: 'lead_' + id, defer: false });
+        if (MUQ.loadTrackingNow) MUQ.loadTrackingNow();
+      }
+    } catch (e) {}
 
     form.reset();
     formCard.hidden = true;
@@ -181,9 +178,4 @@
     successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  // Random, non-personal event id (lets Meta de-duplicate if CAPI is added later)
-  function randomId() {
-    try { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
-    return 'lead-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
-  }
 })();

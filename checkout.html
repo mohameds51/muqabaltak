@@ -9,9 +9,9 @@
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#0B1B3F">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts: preload the two weights visible first (no third-party font request) -->
+  <link rel="preload" href="fonts/plex-arabic-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/plex-arabic-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="pages.css">
 </head>
@@ -60,7 +60,7 @@
 
       <div class="form-alert" id="formAlert" role="alert" hidden></div>
 
-      <form id="signupForm" novalidate>
+      <form id="signupForm" novalidate data-clarity-mask="True">
         <div class="field">
           <label for="first_name">الاسم الأول <span class="req" aria-hidden="true">*</span></label>
           <input id="first_name" name="first_name" type="text" autocomplete="given-name" maxlength="40" required
@@ -129,7 +129,7 @@
     </section>
 
     <!-- ===== Success state ===== -->
-    <section class="co-card co-success" id="successCard" hidden tabindex="-1" aria-labelledby="ok-title">
+    <section class="co-card co-success" id="successCard" hidden tabindex="-1" aria-labelledby="ok-title" data-clarity-mask="True">
       <span class="ok-icon"><svg><use href="#i-check"/></svg></span>
       <h2 id="ok-title">تم تسجيل اهتمامك بنجاح!</h2>
       <p>سنراسلك عند توفر الحقيبة بسعر الإطلاق 49 ريالًا، والقرار في الشراء لك.</p>
@@ -153,7 +153,7 @@
   </div>
 </footer>
 
-<script src="config.js"></script>
+<script src="config.js" defer></script>
 <script src="common.js" defer></script>
 <script src="checkout.js" defer></script>
 </body>

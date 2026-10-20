@@ -3,6 +3,13 @@
    Mobile-first. RTL. No framework.
    ========================================================= */
 
+/* ---------- Self-hosted font: IBM Plex Sans Arabic (SIL OFL — fonts/OFL-LICENSE.txt)
+   Subset: Arabic + Latin. font-display: swap → text shows immediately, no invisible text. */
+@font-face { font-family: "IBM Plex Sans Arabic"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/plex-arabic-Regular.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/plex-arabic-Medium.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/plex-arabic-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/plex-arabic-Bold.woff2") format("woff2"); }
+
 /* ---------- Design tokens ---------- */
 :root {
   --navy-900: #071230;

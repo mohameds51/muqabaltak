@@ -74,24 +74,32 @@
     a.setAttribute('href', MUQ.withAttribution(checkoutUrl));
   });
 
-  var navigating = false;
+  /* PurchaseIntent / Clarity purchase_intent on a real (trusted) click on any buy button.
+     Navigation is NEVER delayed and NEVER depends on Meta or Clarity:
+       - same-tab click, library already loaded → sent right now from this page, before the
+         navigation (Event URL = this page); the browser navigates immediately.
+       - same-tab click, library NOT loaded yet (very early click, slow phone, blocked) → saved as
+         "pending" and sent by checkout.html (Event URL = checkout.html) — instead of being lost.
+       - new-tab / modified click → this page stays open, so the action is sent from here.
+     Once per tab session (several buttons / double-tap = one intent). */
+  var navStartedAt = 0;
+  window.addEventListener('pageshow', function () { navStartedAt = 0; });
+  var PI = { kind: 'custom', name: 'PurchaseIntent', params: { content_name: 'Muqabaltak', currency: 'SAR', value: 49 } };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[data-cta]');
     if (!a || !e.isTrusted) return;
     var cta = a.getAttribute('data-cta') || 'unknown';
-    MUQ.count && MUQ.count('cta_click', { cta: cta });   // sendBeacon survives navigation
+    try { MUQ.count && MUQ.count('cta_click', { cta: cta }); } catch (err) {}   // sendBeacon survives navigation
 
-    // New-tab / modified clicks: let the browser handle them
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    if (navigating) { e.preventDefault(); return; }   // double-tap guard
-    var sent = MUQ.trackOncePerSession && MUQ.trackOncePerSession('custom', 'PurchaseIntent', { content_name: 'Muqabaltak', currency: 'SAR', value: 49 });
-    if (sent) {
-      // Pixel active: give the request a moment to leave before navigating
-      e.preventDefault();
-      navigating = true;
-      var href = a.getAttribute('href');
-      window.setTimeout(function () { window.location.href = href; }, 250);
-    }
+    var sameTab = !(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey);
+    // Double-tap guard: a second same-tab click within 1.5s does not start a second navigation.
+    // (The first click is never delayed.)
+    if (sameTab && navStartedAt && Date.now() - navStartedAt < 1500) { e.preventDefault(); return; }
+    if (sameTab) navStartedAt = Date.now();
+    try {
+      if (sameTab && MUQ.markLeaving) MUQ.markLeaving();
+      if (MUQ.trackAction) MUQ.trackAction({ meta: PI, clarity: 'purchase_intent', onceKey: 'purchase_intent', defer: sameTab });
+    } catch (err) {}
+    // No preventDefault → the link always works, even if tracking code fails or is blocked.
   });
-  window.addEventListener('pageshow', function () { navigating = false; });
 })();

@@ -7,9 +7,9 @@
   <meta name="description" content="سياسة الإلغاء والاسترجاع الخاصة بحقيبة «مقابلتك».">
   <link rel="canonical" href="https://muqabaltak.smartpdf.shop/refund.html">
   <meta name="theme-color" content="#0B1B3F">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts: preload the two weights visible first (no third-party font request) -->
+  <link rel="preload" href="fonts/plex-arabic-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/plex-arabic-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="pages.css">
 </head>
@@ -62,7 +62,7 @@
     <p>© <span id="year">2026</span> مقابلتك. جميع الحقوق محفوظة.</p>
   </div>
 </footer>
-<script src="config.js"></script>
+<script src="config.js" defer></script>
 <script src="common.js" defer></script>
 </body>
 </html>
